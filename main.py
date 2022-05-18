@@ -1,4 +1,6 @@
-
+"""
+Load the model and output biding plan for tormorrow.
+"""
 # You should not modify this part.
 def config():
     import argparse
