@@ -20,12 +20,6 @@ def config():
 
     return parser.parse_args()
 
-def training_and_eval():
-    # Training.
-
-    # Evaluating.
-    pass
-
 def output(path, data):
     df = pd.DataFrame(data, columns=["time", "action", "target_price", "target_volume"])
     df.to_csv(path, index=False)
