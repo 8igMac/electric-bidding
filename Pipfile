@@ -8,6 +8,9 @@ pandas = "*"
 torch = "*"
 
 [dev-packages]
+matplotlib = "*"
+tqdm = "*"
+sklearn = "*"
 
 [requires]
 python_version = "3.8"
