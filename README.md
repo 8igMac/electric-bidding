@@ -11,7 +11,7 @@ $ pipenv run python train.py
 ```
 - Generate biding plan.
 ```sh
-$ pipenv run python \
+$ pipenv run python main.py \
     --consumption ./sample_data/consumption.csv \
     --generation ./sample_data/generation.csv \
     --bidresult ./sample_data/bidresult.csv 
