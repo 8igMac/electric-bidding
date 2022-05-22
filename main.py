@@ -41,7 +41,7 @@ def gen_biding_plan(outputs, target_date):
     data = []
     for date, output in zip(date_list, outputs):
         action = 'buy' if output < 0 else 'sell'
-        price = 2.51 if action == 'buy' else 2.53
+        price = 2.51 if action == 'buy' else 0.01
         volumn = abs(round(output, 2))
         data.append([date.strftime('%Y-%m-%d %H:%M:%S'), action, price, volumn])
         
