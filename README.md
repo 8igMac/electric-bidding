@@ -5,7 +5,7 @@
 ```sh
 $ pipenv install
 ```
-- Train the model. (The model will be stored as `{model_name}.mdf5`)
+- Train the model. (The model will be stored as `{model_name}.hdf5`)
 ```sh
 $ pipenv run python train.py
 ```
