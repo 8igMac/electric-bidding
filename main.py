@@ -57,9 +57,12 @@ def get_target_date(consumption_file):
 if __name__ == "__main__":
     args = config()
 
+    # Detect if GPU is available.
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+
     # Load the model.
     model = MyLSTM(params.INPUT_SIZE, params.OUTPUT_SIZE, params.HIDDEN_SIZE)
-    model.load_state_dict(torch.load('./model.hdf5'))
+    model.load_state_dict(torch.load('./model.hdf5', map_location=device))
     model.eval()
 
     # Read the data.
@@ -67,13 +70,12 @@ if __name__ == "__main__":
     assert inputs.shape == (7, 24)
 
     # Inference.
-    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     with torch.no_grad():
         inputs = inputs.unsqueeze(0)
         assert inputs.shape == (1, 7, 24)
 
         inputs = inputs.to(device)
-        model = model.to(device)
+        model = model.to(device)  # Still need to transfer the model to its device.
 
         outputs = model(inputs)
         outputs = outputs.cpu().detach().numpy()
